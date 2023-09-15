@@ -28,8 +28,9 @@ CREATE TABLE fabricantes(
 ```sql
 CREATE TABLE produtos(
     id INT NOT NULL Primary KEY AUTO_INCREMENT,
-    nome VARCHAR(45) NOT NULL
+    nome VARCHAR(45) NOT NULL,
     descricao TEXT(1000) NOT NULL,
+    preco DECIMAL (6,2) NOT NULL,
     quantidade TINYINT(4) NOT NULL
 )
 ```
@@ -55,7 +56,7 @@ ALTER TABLE produtos
 ADD CONSTRAINT fk_fabricantes
 
 # A chave estrangeira de fazer referencia a chave primaria
-FOREIGN KEY(fabricante_id) REFERENCES fabricante(id)
+FOREIGN KEY(fabricante_id) REFERENCES fabricantes(id)
 ```
 
 

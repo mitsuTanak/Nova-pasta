@@ -3,7 +3,8 @@
 ### Criar banco de dados
 ```sql
 
--- 1ª Digitação (SQL para criar o Banco de dados)
+    -- 1ª Digitação (SQL para criar o Banco de dados)
+    CREATE DATABASE tecdev_escola_mitsuaki CHARACTER SET utf8mb4; 
 
 ```
 <!-- ____________________________________________________________________ -->
@@ -11,25 +12,64 @@
 ```sql
 
 -- 2ª Digitação (SQL para criar a tabela Cursos)
+CREATE TABLE cursos(
+    id INT NULL PRIMARY KEY AUTO_INCREMENT,
+    titulo varchar(30) NOT NULL,
+    carga_horaria SMALLINT
+);
 
 
 ```
+
+```sql
+ALTER TABLE cursos ADD professor_id INT NOT NULL
+AFTER carga_horaria
+```
+
 <!-- ____________________________________________________________________ -->
 ### Criar tabela professores
 ```sql
 
 -- 3ª Digitação (SQL para criar a tabela Professores)
+CREATE TABLE professores(
+    id INT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(50) NOT NULL,
+    area_de_atuacao ENUM('infra', 'design', 'desenvolvimento')
+);
+
 
 
 ```
+
+```sql
+ALTER TABLE professores ADD curso_id INT NOT NULL
+AFTER area_de_atuacao
+```
+
+
 <!-- ____________________________________________________________________ -->
 ### Criar tabela alunos
 ```sql
 
 -- 4ª Digitação (SQL para criar a tabela Alunos)
+CREATE TABLE alunos(
+    id INT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(50) NOT NULL,
+    data_de_nascimento DATE,
+    primeira_nota DECIMAL(4, 2),
+    segunda_nota DECIMAL(4, 2)
+
+);
+
 
 
 ```
+
+```sql
+ALTER TABLE alunos ADD curso_id INT NOT NULL
+AFTER segunda_nota
+```
+
 <!-- ____________________________________________________________________ -->
 ### Criação da chave estrangeira (relacionamento entre as tabelas)
 
@@ -71,8 +111,17 @@ INSERT INTO cursos (titulo, carga_horaria) VALUES(
 );
 
 ```
+
+```sql
+INSERT INTO cursos (titulo) VALUE ('Front-End'), ('Back-End'), ('UX/UI Design'), ('Figma'), ('Redes de Computadores');
+```
+
 <!-- ____________________________________________________________________ -->
 ### cadastro dos (5 professores) Etapa 2
+
+```sql
+INSERT INTO 
+```
 
 ```sql
 INSERT INTO professores (nome, area_de_atuacao, curso_id) VALUES(

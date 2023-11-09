@@ -207,6 +207,9 @@ INSERT INTO alunos (nome, data_de_nascimento,primeira_nota, segunda_nota, curso_
 ```sql
 
 -- 5ª Digitação (SQL para criar a consulta acima)
+SELECT nome, data_de_nascimento
+FROM `alunos`
+WHERE data_de_nascimento < '2009-01-01'
 
 ```
 ![Relatório 1](resultados_alunos/relatorio1.jpg)
@@ -226,6 +229,10 @@ SELECT nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_not
 ```sql
 
 -- 7ª Digitação (SQL para criar a consulta acima)
+SELECT titulo, carga_horaria, ROUND((carga_horaria * 0.25), 0) 
+AS "Limite de Faltas" from cursos 
+GROUP BY titulo;
+
 
 ```
 ![Relatório 3](resultados_alunos/relatorio3.jpg)
@@ -245,6 +252,8 @@ SELECT nome, area_de_atuacao FROM professores WHERE area_de_atuacao LIKE "%desen
 ```sql
 
 -- 9ª Digitação (SQL para criar a consulta acima)
+
+select count(*) from professores WHERE area_de_atuacao LIKE "%desenvolvimento%";
 
 ```
 ![Relatório 5](resultados_alunos/relatorio5.jpg)

@@ -274,6 +274,11 @@ SELECT alunos.nome, cursos.titulo, cursos.carga_horaria FROM alunos INNER JOIN c
 
 -- 11ª Digitação (SQL para criar a consulta acima)
 
+SELECT professores.nome, cursos.titulo 
+FROM professores INNER JOIN cursos 
+ON professores.curso_id = cursos.id 
+GROUP BY professores.nome;
+
 ```
 ![Relatório 7](resultados_alunos/relatorio7.jpg)
 
@@ -299,6 +304,11 @@ SELECT alunos.nome, cursos.titulo, professores.nome AS "Nome professor" FROM alu
 ```sql
 
 -- 13ª Digitação (SQL para criar a consulta acima)
+
+SELECT  cursos.titulo AS "Materias", COUNT(alunos.curso_id) AS "Quantidade de Alunos" 
+FROM alunos INNER JOIN cursos ON alunos.curso_id = cursos.id 
+GROUP BY Materias 
+ORDER BY COUNT(alunos.curso_id) DESC;
 
 ```
 ![Relatório 9](resultados_alunos/relatorio9.jpg)
